@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .green {
+        color: green;
+        font-size: 25px;
+    }
+</style>
+
+<body>
+</body>
+
+<script>
+    const city = "Itambacuri";
+    const something = "Manteiga Primavera";
+    const otherThing = "Festa de Agosto";
+
+    function green(template, ...values) {
+        return template.reduce((accumulator, part, i) => {
+            return `
+                ${accumulator}
+                <span class="green">${values[i - 1].toUpperCase()}</span>
+                ${part}
+            `
+        })
+    }
+
+    const living = green`I live in ${city} the city of ${something} and ${otherThing}!`;
+
+    document.body.innerHTML = living;
+
+</script>
+
+</html>
