@@ -28,19 +28,28 @@
         }, 600);
     });
 
-    Promise
-        .all([currency, countries])
-        .then(responses => {
-            console.log('promised all');
-            console.log(responses);
-        });
+    // Promise
+    //     .all([currency, countries])
+    //     .then(responses => {
+    //         console.log('promised all');
+    //         console.log(responses);
+    //     });
 
-    Promise
-        .race([currency, countries])
-        .then(response => {
-            console.log('promised race');
-            console.log(response);
-        });
+    // Promise
+    //     .race([currency, countries])
+    //     .then(response => {
+    //         console.log('promised race');
+    //         console.log(response);
+    //     });
+
+
+    async function getData() {
+        const data = await Promise.all([currency, countries]);
+        console.log(data);
+        return data;
+    }
+
+    getData();
 
 </script>
 
