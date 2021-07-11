@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>001 - promises</title>
+</head>
+
+<style>
+
+</style>
+
+<body>
+</body>
+
+<script>
+    var defer = new Promise((resolve, reject) => {
+        console.log('started promise')
+        setTimeout(() => {
+            if (true) {
+                resolve('Success!');
+            } else {
+                reject('Error!');
+            }
+        }, 2000);
+    });
+
+    defer
+        .then((data) => {
+            console.log(data)
+            return 'second';
+        })
+        .then((data) => {
+            console.log(data);
+        })
+        .catch((err) => console.error(err));
+</script>
+
+</html>

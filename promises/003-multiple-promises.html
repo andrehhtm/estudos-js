@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>003 - multiple promises</title>
+</head>
+
+<style>
+
+</style>
+
+<body>
+</body>
+
+<script>
+    const currency = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve({ currency: 'euro', value: 3.50 });
+        }, 2000);
+    });
+
+    const countries = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(['Brazil', 'Peru', 'Colombia']);
+        }, 600);
+    });
+
+    Promise
+        .all([currency, countries])
+        .then(responses => {
+            console.log('promised all');
+            console.log(responses);
+        });
+
+    Promise
+        .race([currency, countries])
+        .then(response => {
+            console.log('promised race');
+            console.log(response);
+        });
+
+</script>
+
+</html>
